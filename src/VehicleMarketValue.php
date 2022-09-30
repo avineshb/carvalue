@@ -32,8 +32,8 @@ class VehicleMarketValue
     {
         $this->config = [
             'dsn'       => 'mysql:host=localhost;dbname=inventory;charset=UTF8',
-            'username'  => 'username',
-            'password'  => 'a_secret_password',
+            'username'  => 'root',
+            'password'  => 'P@ssw0rd1!',
             'table'     => 'vehicle_data',
         ];
 

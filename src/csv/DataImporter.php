@@ -21,7 +21,7 @@ class DataImporter
     private $insert;
 
     public $config;
-    public $csvPath = './data/inventory-listing.csv';
+    public $csvPath = './inventory-listing.csv';
     public $db;
 
     /**
@@ -236,5 +236,5 @@ class DataImporter
     }
 }
 
-$var = new DataImporter();
-$var->importData();
+$import = new DataImporter();
+$import->importData();
