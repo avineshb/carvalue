@@ -5,12 +5,12 @@ formValues.set('vehicle', '');
 formValues.set('mileage', '');
 
 /**
-* Gets form data and calls 'fetchData()''.
-*/
+ * Gets form data and calls 'fetchData()'.
+ */
 function getMarketPrice()
 {
     // Should follow the convention: 2015 Toyota Camry
-    // The following variation works, too: 2015 Toyota Camry LE
+    // The following variation with the trim also works: 2015 Toyota Camry LE
     const validVehicle = /[0-9]+\s[a-zA-Z]+\s[a-zA-Z]+/i;
 
     document.getElementById('validation').style.display = 'none';
@@ -29,8 +29,8 @@ function getMarketPrice()
 }
 
 /**
-* Fetch data from server using the Fetch API.
-*/
+ * Fetch data from the server using the Fetch API.
+ */
 function fetchData(vehicle, mileage)
 {
     formValues.set('vehicle', vehicle);
@@ -44,29 +44,29 @@ function fetchData(vehicle, mileage)
 }
 
 /**
-* Format a number with grouped thousands using commas.
-*/
+ * Format a number with grouped thousands using commas.
+ */
 function formatNumber(number)
 {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 /**
-* Ensure a number with valid digits is entered for 'mileage'.
-*/
+ * Ensure a number with valid digits is entered for 'mileage'.
+ */
 function checkNumber()
 {
     if (window.event && window.event.keyCode == 32 || window.event.keyCode < 48 || window.event.keyCode > 57) {
-    	window.event.cancelBubble = true;
-    	window.event.returnValue = false;
+        window.event.cancelBubble = true;
+        window.event.returnValue = false;
 
-		return false;
-	}
+        return false;
+    }
 }
 
 /**
-* Display data.
-*/
+ * Display vehicle data.
+ */
 function displayData(response)
 {
     document.getElementById("market_price").innerHTML = `<strong>Estimated Market Price: $${response["market_value"]}</strong>`;
@@ -77,7 +77,7 @@ function displayData(response)
     table += '</thead><tbody>';
 
     const vehicle_data = response["vehicle_data"];
-    for (var i=0; i < vehicle_data.length; i++)
+    for (let i = 0; i < vehicle_data.length; i++)
     {
         table += '<tr>';
         table += '<td>' + vehicle_data[i]["vehicle"] + '</td>';
